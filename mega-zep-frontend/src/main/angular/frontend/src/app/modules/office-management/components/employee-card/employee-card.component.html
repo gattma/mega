@@ -104,7 +104,7 @@
             {{'office-management.table.projectCheckState' | translate}}</mat-header-cell>
           <mat-cell *matCellDef="let omEntry" class="text-center">
             <span class="mobile-label">{{'office-management.table.projectCheckState' | translate}}</span>
-            <app-state-indicator (mouseenter)="openEmployeeProgress(omEntry)" (mouseleave)="closeEmployeeProgress()"
+            <app-state-indicator (click)="openEmployeeProgress(omEntry)"
                                  [state]="omEntry.projectCheckState"></app-state-indicator>
           </mat-cell>
         </ng-container>

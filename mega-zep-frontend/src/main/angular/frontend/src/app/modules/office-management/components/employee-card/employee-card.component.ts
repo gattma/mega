@@ -211,12 +211,8 @@ export class EmployeeCardComponent implements OnInit, OnDestroy {
     this.employeeProgressRef = this._bottomSheet.open(PmProgressComponent, {
       data: {employeeProgresses: omEntry.employeeProgresses},
       autoFocus: false,
-      hasBackdrop: false
+      disableClose: false
     });
-  }
-
-  closeEmployeeProgress() {
-    this.employeeProgressRef.dismiss();
   }
 
   private getFormattedDate() {
