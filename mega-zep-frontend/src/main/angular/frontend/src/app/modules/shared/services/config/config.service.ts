@@ -29,6 +29,9 @@ export class ConfigService {
   }
 
   getBackendUrl(): string {
+    console.log("MARKO" + environment.frontendOriginSegment);
+    console.log(window.location.origin);
+    console.log(window.location.origin.replace(environment.frontendOriginSegment, environment.backendOriginSegment));
     return window.location.origin.replace(environment.frontendOriginSegment, environment.backendOriginSegment);
   }
 
