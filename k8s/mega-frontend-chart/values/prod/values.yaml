@@ -1,0 +1,16 @@
+deployment:
+  name: mega-zep-frontend
+  image: image-registry.openshift-image-registry.svc.cluster.local:5000/mega-cicd/mega-frontend:7f6fe8b4827e0dba54dfec1a239912147fe5b699
+  resources:
+    limits:
+      cpu: 750m
+      memory: 800Mi
+    requests:
+      cpu: 250m
+      memory: 400Mi
+
+route:
+  name: mega-zep-frontend
+
+service:
+  name: mega-zep-frontend

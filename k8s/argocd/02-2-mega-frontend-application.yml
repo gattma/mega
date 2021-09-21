@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mega-frontend-dev
+  namespace: mega-cicd
+spec:
+  destination:
+    namespace: mega-dev
+    server: 'https://kubernetes.default.svc'
+  project: mega
+  source:
+    path: k8s/mega-frontend-chart
+    repoURL: https://github.com/gattma/mega.git
+    targetRevision: develop
+    helm:
+      valueFiles:
+      - values/dev/values.yml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+# TODO Application für Test und Prod      
