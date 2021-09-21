@@ -1,0 +1,4 @@
+cicdNs: mega-cicd
+devNs: mega-dev
+testNs: mega-test
+prodNs: mega-prod

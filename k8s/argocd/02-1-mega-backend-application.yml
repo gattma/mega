@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quarkus-hello-world-development
+  namespace: mega-cicd
+spec:
+  destination:
+    namespace: mega-dev
+    server: 'https://kubernetes.default.svc'
+  project: mega
+  source:
+    path: -development
+    repoURL: https://github.com/gattma/mega.git
+    targetRevision: develop
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

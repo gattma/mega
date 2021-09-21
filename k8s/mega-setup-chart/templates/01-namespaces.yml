@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.cicdNs }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.devNs }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.testNs }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.prodNs }}

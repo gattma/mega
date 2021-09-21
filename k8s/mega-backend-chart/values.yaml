@@ -1,0 +1,40 @@
+envSecret:
+  name: mega
+  data: VE9LRU49YzBjMzgzNDM0Njk4ZDI2OTYxNjNmMjgwN2FjYmYyZDlmMzFlOWVjYjE4NzU1YjRlYzQzZjUwMTMyMzc4OGQ2YgpNQUlMRVJfUEFTU1dPUkQ9cHJ5Y3d2b2ppZXZlc2loZw==
+
+deployment:
+  name: mega-zep-backend
+  image: image-registry.openshift-image-registry.svc.cluster.local:5000/mega/mega-backend:2e643ddee0e9c711a387e6640c38e4cbf6bed595
+  env:
+    abJolokiaOff: true
+    abPrometheusOff: true
+    javaMaxMemRatio: 95
+    javaInitMemRatio: 95
+    javaOptions: >-
+      -Dquarkus.profile=devstage -Djava.net.preferIPv4Stack=true
+      -Dquarkus.http.cors.origins=https://mega-zep-frontend-mega.apps.play.gepaplexx.com
+    timeZone: Europe/Vienna
+  resources:
+    limits:
+      cpu: 750m
+      memory: 800Mi
+    requests:
+      cpu: 250m
+      memory: 400Mi
+
+service:
+  name: mega-zep-backend
+
+route:
+  name: mega-zep-backend
+
+database:
+  resourceName: mega-zep-db
+  dbName: mega
+  user: mega
+  image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres-ha:centos8-13.4-0
+  postgresVersion: 13
+  storage: 1Gi
+  backup:
+    image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:centos8-2.33-2
+    storage: 1Gi
