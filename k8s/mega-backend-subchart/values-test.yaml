@@ -1,5 +1,5 @@
 gp-bke-deploy-app:
-  replicaCount: 1
+  replicaCount: 2
 
   # metadata.name: [RELEASE-NAME]-[nameOverride]
   # metadata.label.app.kubernetes.io/name: [nameOverride]
