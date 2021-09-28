@@ -10,7 +10,7 @@ gp-bke-deploy-app:
   fullnameOverride: "mega-zep-backend"
 
   image:
-    name: image-registry.openshift-image-registry.svc.cluster.local:5000/mega-cicd/mega-backend
+    name: image-registry.openshift-image-registry.svc.cluster.local:5000/gattma-mega-cicd/mega-backend
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: 2e643ddee0e9c711a387e6640c38e4cbf6bed595
