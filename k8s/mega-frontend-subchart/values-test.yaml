@@ -1,0 +1,75 @@
+gp-bke-deploy-app:
+  replicaCount: 2
+
+  # metadata.name: [RELEASE-NAME]-[nameOverride]
+  # metadata.label.app.kubernetes.io/name: [nameOverride]
+  nameOverride: "mega-zep-frontend"
+
+  # metadata.name: [fullnameOverride]
+  # metadata.label.app.kubernetes.io/name: gp-bke-deploy-app
+  fullnameOverride: "mega-zep-frontend"
+
+  image:
+    name: image-registry.openshift-image-registry.svc.cluster.local:5000/gattma-mega-cicd/mega-frontend
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: 7f6fe8b4827e0dba54dfec1a239912147fe5b699
+
+  podAnnotations: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
+
+  service:
+    type: ClusterIP
+    port: 8080
+
+  route:
+    enabled: true
+    wildcardPolicy: None
+    tls:
+      enabled: true
+      termination: edge
+      insecureEdgeTerminationPolicy: None
+      ## IMPORTANT: Do not check 'key' into git!
+      key:
+      caCertificate:
+      certificate:
+      destinationCACertificate:
+
+  livenessProbe:
+    enabled: false
+    path: "" # default is /
+
+  readinessProbe:
+    enabled: false
+    path: "" # default is /
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+  env: {}
+
+  volumes: {}
+  volumeMounts: {}
+
+  resources:
+    limits:
+      cpu: 750m
+      memory: 800Mi
+    requests:
+      cpu: 250m
+      memory: 400Mi
+
+  secret: {}
