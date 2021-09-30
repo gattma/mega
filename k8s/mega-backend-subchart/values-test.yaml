@@ -1,5 +1,5 @@
 gp-bke-deploy-app:
-  replicaCount: 2
+  replicaCount: 1
 
   # metadata.name: [RELEASE-NAME]-[nameOverride]
   # metadata.label.app.kubernetes.io/name: [nameOverride]
@@ -14,6 +14,11 @@ gp-bke-deploy-app:
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: 2e643ddee0e9c711a387e6640c38e4cbf6bed595
+
+  ports:
+    - name: http
+      containerPort: 8080
+      protocol: TCP
 
   podAnnotations: {}
 
