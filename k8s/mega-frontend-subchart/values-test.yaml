@@ -15,7 +15,10 @@ gp-bke-deploy-app:
     # Overrides the image tag whose default is the chart appVersion.
     tag: 7f6fe8b4827e0dba54dfec1a239912147fe5b699
 
-  ports: {}
+  ports:
+    - name: http
+      containerPort: 8080
+      protocol: TCP
   
   podAnnotations: {}
 
