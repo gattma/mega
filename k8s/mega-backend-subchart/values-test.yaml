@@ -36,6 +36,7 @@ gp-bke-deploy-app:
   service:
     type: ClusterIP
     port: 8080
+    targetPort: 8080
 
   route:
     enabled: true
@@ -76,7 +77,7 @@ gp-bke-deploy-app:
   - name: JAVA_OPTIONS
     value: >-
       -Dquarkus.profile=devstage -Djava.net.preferIPv4Stack=true
-      -Dquarkus.http.cors.origins=https://mega-zep-frontend-mega-test.apps.play.gepaplexx.com
+      -Dquarkus.http.cors.origins=https://mega-zep-frontend-gattma-mega-test.apps.play.gepaplexx.com
   - name: TZ
     value: Europe/Vienna
   - name: DB_USER

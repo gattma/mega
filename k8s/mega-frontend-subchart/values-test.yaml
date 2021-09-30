@@ -36,6 +36,7 @@ gp-bke-deploy-app:
   service:
     type: ClusterIP
     port: 8080
+    targetPort: 8080
 
   route:
     enabled: true
